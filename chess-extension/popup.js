@@ -1,80 +1,91 @@
-
 let totalGames = 0;
-let totalWins= 0;
-let totalLosses = 0;
-let totalDraws = 0;
+let gamesWon = 0;
+let gamesLost = 0;
+let gamesDrawn = 0;
 
 
+async function setStats()
+{
+    let num = await chrome.storage.local.get(["gameCount"]);
+    num = num.gameCount;
+    if(num>0)
+    {
+        totalGames = num;
+        document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+
+    }
+
+    num = await chrome.storage.local.get(["winCount"]);
+    num = num.winCount;
+    if(num > 0)
+    {
+        gamesWon = num;
+        document.getElementById("games-won").textContent = "Games Won: " + gamesWon;
+
+    }
+
+    num = await chrome.storage.local.get(["lossCount"]);
+    num = num.lossCount;
+    if(num > 0)
+    {
+        gamesLost = num;
+        document.getElementById("games-lost").textContent = "Games Lost: " + gamesLost;
+
+    }
+
+    num = await chrome.storage.local.get(["drawCount"]);
+    num = num.drawCount;
+    if(num > 0)
+    {
+        gamesDrawn = num;
+        document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
+
+    }
+}
+setStats();
+
+//ON button click
 function addWin()
 {
     totalGames++;
-    addClick("win");
+    gamesWon++;
+    chrome.storage.local.set({winCount: gamesWon});
+    chrome.storage.local.set({gameCount: totalGames});
+    
+
+    document.getElementById("games-won").textContent = "Games Won: " + gamesWon;
+    document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+     
 }
 function addLoss()
 {
     totalGames++;
-    addClick("loss")
+    gamesLost++;
+    chrome.storage.local.set({lossCount: gamesLost});
+    chrome.storage.local.set({gameCount: totalGames});
+    
+
+
+    document.getElementById("games-lost").textContent = "Games Lost: " + gamesLost;
+    document.getElementById("total-games").textContent = "Total Games: " + totalGames;
 }
 function addDraw()
 {
     totalGames++;
-    addClick("draw")
-}
-
-async function addClick(outcome)
-{
-    if(outcome === "win")
-    {
-        await chrome.storage.local.set({numWins: totalWins});
-    }
-    else if(outcome === "loss")
-    {
-        await chrome.storage.local.set({numLosses: totalLosses});
-    }
-    else if(outcome === "draw")
-    {
-        await chrome.local.storage.set({numDraws: totalDraws});
-    }
-    await chrome.storage.local.set({numGames:totalGames});
-}
-
-async function setCounts()
-{
-   
-}
-
-document.getElementById("Won-Button").addEventListener("click", addWin)
-document.getElementById("Lost-Button").addEventListener("click", addLoss)
-document.getElementById("Draw-Button").addEventListener("click", addDraw) 
-// async function setClicks()
-// {
-//     await chrome.storage.local.set({numClicks: count});
-// }
-
-// async function setCount()
-// {
-//     let num = await chrome.storage.local.get(["numClicks"]);
-
-//     num = num.numClicks;
-//     console.log(num);
-//     if(num>0)
-//     {
-//         count = num;
-//         document.getElementById("displayClicks").textContent = "Times Clicked: " + count;
-
-//     }
+    gamesDrawn++;
+    chrome.storage.local.set({drawCount: gamesDrawn});
+    chrome.storage.local.set({gameCount: totalGames});
     
-// }
 
 
-// setCount();
+    document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
+    document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+}
 
 
 
-// function addClick()
-// {
-//     count++;
-//     document.getElementById("displayClicks").textContent = "Times Clicked: " + count;
-//     setClicks();
-// }
 
+//event listeners
+document.getElementById("Won-Button").addEventListener("click", addWin);
+document.getElementById("Lost-Button").addEventListener("click", addLoss);
+document.getElementById("Draw-Button").addEventListener("click",addDraw);
