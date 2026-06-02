@@ -89,7 +89,7 @@ function clearAll()
     gamesLost = 0;
     gamesDrawn = 0;
     chrome.storage.local.set({gameCount:0});
-    chrome.storage.local.set({winCountL:0});
+    chrome.storage.local.set({winCount:0});
     chrome.storage.local.set({lossCount:0});
     chrome.storage.local.set({drawCount:0});
 
