@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel = "stylesheet" href = "popup.css">
+        <link rel="stylesheet" href="popup.css">
     </head>
 <body>
+    <div class="container">
 
+        <h1 id="main-header">CHESS EXTENSION</h1>
 
-    <h1 id="main-header">CHESS EXTENSION</h1>
+        <p id="tree-level">Current Tree: Sapling</p>
+        <img id="tree" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBwDM0J9JcCyS4LkonFIDUmu00UI-sRKlZYXjNwpkJyA&s=10">
 
-    <p id="total-games">Total Games: 0</p>
-    <p id="games-won">Games Won: 0</p>
-    <p id="games-lost">Games Lost: 0</p>
-    <p id="games-drawn">Games Drawn: 0</p>
+        <p id="total-games">Total Games: 0</p>
+        <p id="games-won">Games Won: 0</p>
+        <p id="games-lost">Games Lost: 0</p>
+        <p id="games-drawn">Games Drawn: 0</p>
 
+        <div class="buttons">
+            <button type="button" id="Won-Button">Game Won</button>
+            <button type="button" id="Lost-Button">Game Lost</button>
+            <button type="button" id="Draw-Button">Game Drawn</button>
+            <button type="button" id="Clear-Button">Clear</button>
+        </div>
 
-
-
-    <button type="button" id="Won-Button">Game Won</button>
-    <button type="button" id="Lost-Button">Game Lost</button>
-    <button type="button" id="Draw-Button">Game Drawn</button>
-    <button type="button" id="Clear-Button">Clear</button>
-    
-
-
+    </div>
 
     <script src="popup.js"></script>
 </body>
