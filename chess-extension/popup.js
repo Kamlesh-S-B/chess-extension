@@ -82,6 +82,30 @@ function addDraw()
     document.getElementById("total-games").textContent = "Total Games: " + totalGames;
 }
 
+function clearAll()
+{
+    totalGames = 0;
+    gamesWon = 0;
+    gamesLost = 0;
+    gamesDrawn = 0;
+    chrome.storage.local.set({gameCount:0});
+    chrome.storage.local.set({winCount:0});
+    chrome.storage.local.set({lossCount:0});
+    chrome.storage.local.set({drawCount:0});
+
+    document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+    document.getElementById("games-won").textContent = "Games Won: " + gamesWon;
+    document.getElementById("games-lost").textContent = "Games Lost: " + gamesLost;
+    document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
+
+
+}
+
+function updateTree()
+{
+
+}
+
 
 
 
@@ -89,3 +113,4 @@ function addDraw()
 document.getElementById("Won-Button").addEventListener("click", addWin);
 document.getElementById("Lost-Button").addEventListener("click", addLoss);
 document.getElementById("Draw-Button").addEventListener("click",addDraw);
+document.getElementById("Clear-Button").addEventListener("click",clearAll);
