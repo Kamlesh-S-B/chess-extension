@@ -41,8 +41,12 @@ async function setStats()
         document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
 
     }
+
+    updateTree()
 }
 setStats();
+
+
 
 //ON button click
 function addWin()
@@ -55,6 +59,7 @@ function addWin()
 
     document.getElementById("games-won").textContent = "Games Won: " + gamesWon;
     document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+    updateTree();
      
 }
 function addLoss()
@@ -68,6 +73,7 @@ function addLoss()
 
     document.getElementById("games-lost").textContent = "Games Lost: " + gamesLost;
     document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+    updateTree();
 }
 function addDraw()
 {
@@ -80,6 +86,7 @@ function addDraw()
 
     document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
     document.getElementById("total-games").textContent = "Total Games: " + totalGames;
+    updateTree()
 }
 
 function clearAll()
@@ -97,13 +104,38 @@ function clearAll()
     document.getElementById("games-won").textContent = "Games Won: " + gamesWon;
     document.getElementById("games-lost").textContent = "Games Lost: " + gamesLost;
     document.getElementById("games-drawn").textContent = "Games Drawn: " + gamesDrawn;
-
+    updateTree()
 
 }
 
-function updateTree()
+async function updateTree()
 {
-
+    let currentTree = document.getElementById("tree-image");
+    if(totalGames<10)
+    {
+        document.getElementById("tree-level").textContent ="Current Tree: Seed";
+        currentTree.src="https://openmoji.org/data/color/svg/1F330.svg";
+    }
+    if(totalGames>=10 && totalGames<25)
+    {
+        document.getElementById("tree-level").textContent ="Current Tree: Sapling";
+        currentTree.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBwDM0J9JcCyS4LkonFIDUmu00UI-sRKlZYXjNwpkJyA&s=10";
+    }
+    if(totalGames>=25 && totalGames<50)
+    {
+        document.getElementById("tree-level").textContent ="Current Tree: Young Tree";
+        currentTree.src="https://openmoji.org/data/color/svg/1F33F.svg";
+    }
+    if(totalGames>=50 && totalGames<100)
+    {
+        document.getElementById("tree-level").textContent ="Current Tree: Mature Tree";
+        currentTree.src="https://images.emojiterra.com/google/noto-emoji/unicode-17.0/color/svg/1f333.svg"
+    }
+    if(totalGames>=100)
+    {
+        document.getElementById("tree-level").textContent = "Current Tree: Forest";
+        currentTree.src="https://imgproxy.attic.sh/insecure/f:webp/h:993/q:90/w:993/plain/https://attic.sh/qkqlry3bju95ui8tue1acaz07v6g";
+    }
 }
 
 
@@ -111,6 +143,6 @@ function updateTree()
 
 //event listeners
 document.getElementById("Won-Button").addEventListener("click", addWin);
-document.getElementById("Lost-Button").addEventListener("click", addLoss);
-document.getElementById("Draw-Button").addEventListener("click",addDraw);
-document.getElementById("Clear-Button").addEventListener("click",clearAll);
+document.getElementById("Lost-Button").addEventListener("click", addLoss,updateTree);
+document.getElementById("Draw-Button").addEventListener("click",addDraw, updateTree);
+document.getElementById("Clear-Button").addEventListener("click",clearAll, updateTree);
