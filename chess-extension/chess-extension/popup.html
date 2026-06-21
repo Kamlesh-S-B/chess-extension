@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel = "stylesheet" href = "popup.css">
+        <link rel="stylesheet" href="popup.css">
     </head>
 <body>
+        <div id = "container">
+            <h1 id="main-header">CHESS EXTENSION</h1>
+            <input type = "text" id="username-input" value ="Enter Username"> 
+        </div>
+        
 
+        <p id="tree-level" class="tree-text">Current Tree: Seed</p>
+        
+        
+        <img id="tree-image" src="https://openmoji.org/data/color/svg/1F330.svg">
+        
 
-    <h1 id="main-header">CHESS EXTENSION</h1>
+        <p id="total-games" class="stats-text">Total Games: 0</p>
+        <p id="games-won" class="stats-text">Games Won: 0</p>
+        <p id="games-lost" class="stats-text">Games Lost: 0</p>
+        <p id="games-drawn" class="stats-text">Games Drawn: 0</p>
 
-    <p id="total-games">Total Games: 0</p>
-    <p id="games-won">Games Won: 0</p>
-    <p id="games-lost">Games Lost: 0</p>
-    <p id="games-drawn">Games Drawn: 0</p>
+        <div class="container">
+        <p id="games-to-next" class="tree-text">x Games To Next Tree</p>
+        </div>
 
+        <div class="buttons-container">
+            <button type="button" id="Won-Button">Game Won</button>
+            <button type="button" id="Lost-Button">Game Lost</button>
+            <button type="button" id="Draw-Button">Game Drawn</button>
+            <button type="button" id="Clear-Button">Clear</button>
+        </div>
 
-
-    <button type="button" id="Won-Button">Game Won</button>
-    <button type="button" id="Lost-Button">Game Lost</button>
-    <button type="button" id="Draw-Button">Game Drawn</button>
-    <button type="button" id="Clear-Button">Clear</button>
     
-
-
 
     <script src="popup.js"></script>
 </body>
