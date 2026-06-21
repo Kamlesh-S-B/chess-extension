@@ -234,9 +234,14 @@ async function loadUser()
 }
 
 //event listeners
+
+
+/*
 document.getElementById("Won-Button").addEventListener("click", addWin);
 document.getElementById("Lost-Button").addEventListener("click", addLoss);
 document.getElementById("Draw-Button").addEventListener("click",addDraw );
 document.getElementById("Clear-Button").addEventListener("click",clearAll);
+
+*/
 document.addEventListener("DOMContentLoaded", loadUser)
 document.getElementById("username-input").addEventListener("keydown",(event)=>checkKey(event));

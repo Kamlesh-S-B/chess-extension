@@ -1,6 +1,6 @@
 html{
     width : 300px;
-    height:290px;
+    height:200px;
     background-color: rgb(245, 241, 232);
     border-radius: 50%;
 }
@@ -18,6 +18,7 @@ html{
 }
 .tree-text{
     color:rgb(46, 125, 50);
+    margin-top: -10px;
 }
 
 .stats-text{
@@ -41,18 +42,6 @@ html{
 
 
 
-.buttons-container{
-position: fixed;  
-  bottom: 0;         
-  left: 0;         
-  width: 100%;       
-  
-  display: flex; 
-
-   
- 
-}
-
 
 
 .container{
@@ -62,18 +51,7 @@ position: fixed;
 
 
 
-#Won-Button{
-    background-color: rgb(76, 175, 80);
-}
-#Lost-Button{
-    background-color: rgb(229, 57, 53);
-}
-#Draw-Button{
-    background-color: rgb(251, 192, 45);
-}
-#Clear-Button{
-    background-color: rgb(117, 117, 117);
-}
+
 
 
 #username-input{
