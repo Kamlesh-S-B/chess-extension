@@ -62,10 +62,11 @@ function getTreeLevel(stats)
 async function onEnter()
 {
     let username = document.getElementById("username-input").value;
-    
-    await chrome.storage.local.set({username:username})
-
     let stats = await getLichessStats(username);
+    checkUsername(stats);
+
+    await chrome.storage.local.set({username:username})    
+
 
     let winRate =calculateWinRate(stats);
 
@@ -74,23 +75,28 @@ async function onEnter()
 }
 
 
-
-
-
-
+function checkUsername(stats)
+{
+    if(stats === undefined)
+    {
+        document.getElementById("username-input").value = "User Not Found!";
+         return "invalid";
+    }
+    return "valid";
+   
+}
 
 async function getLichessStats(username)
 {
     let url =  `https://lichess.org/api/user/${username}`;
     let response = await fetch(url);
-
-    if(!response.ok)
+    if(response.status === 404)
     {
-        throw new Error("User not found");
+        return undefined;
     }
+    
 
     let data = await response.json();
-    console.log(data);
     return data.count;
 }
 
@@ -114,17 +120,14 @@ async function loadUser()
 {
 
     let result = await chrome.storage.local.get("username");
-    username = result.username
-    if(username!="")
-    {
+    username = result.username;
+    let stats = await getLichessStats(username);
+    
+    let validity = checkUsername(stats);
+    if(username!="" && validity != "invalid")
+    { 
         document.getElementById("username-input").value = username;
     }
-    else{
-        document.getElementById("username-input").value = "Enter Username"
-    }
-    
-
-    let stats = await getLichessStats(username);
 
     let winRate = calculateWinRate(stats);
     updateUI(stats, winRate);
