@@ -9,14 +9,10 @@ html{
 .header{
     font-size: 20px;
     color: rgb(92, 64, 51);
-
+    margin-right: 10px;
     
 }
 
-#badges-page-header{
-    font-size: 20px;
-    color: rgb(92, 64, 51);
-}
 
 #container{
     display:flex;
@@ -79,6 +75,8 @@ button
 {
     transition: .2s;
     margin: 3px;
+    border-radius: 5px;
+    border: 2px solid rgb(92, 64, 51);;
 }
 button:hover
 {
@@ -86,6 +84,15 @@ button:hover
     background-color: rgb(46, 125, 50);
     color: rgb(245, 241, 232);
     cursor: pointer;
+}
+#button-container{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+
 }
 
 #username-input{
@@ -98,15 +105,7 @@ button:hover
     
 }
 
-#button-container{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    display:flex;
-    justify-content:flex-end;
 
-}
 #home{
     display: inline;
     transition: opacity 0.3s ease;

@@ -30,31 +30,31 @@ function getTreeLevel(stats)
     if(stats.all<20)
     {
         document.getElementById("games-to-next").textContent=(20-stats.all) + " Games To Next Tree";
-        currentTree.src="https://openmoji.org/data/color/svg/1F330.svg";
+        currentTree.src="images/seed.svg";
         return "Seed";
     }
     if(stats.all>=20 && stats.all<75)
     {
         document.getElementById("games-to-next").textContent=(75-stats.all) + " Games To Next Tree";
-        currentTree.src="https://openmoji.org/data/color/svg/1F331.svg";
+        currentTree.src="images/sapling.svg";
         return "Sapling";
     }
     if(stats.all>=75 && stats.all<200)
     {
         document.getElementById("games-to-next").textContent=(200-stats.all) + " Games To Next Tree";
-        currentTree.src="https://openmoji.org/data/color/svg/1F33F.svg";
+        currentTree.src="images/young_tree.svg";
         return "Young Tree";
     }
     if(stats.all>=200 && stats.all<500)
     {
         document.getElementById("games-to-next").textContent=(500-stats.all) + " Games To Next Tree";
-        currentTree.src="https://images.emojiterra.com/google/noto-emoji/unicode-17.0/color/svg/1f333.svg"
+        currentTree.src="images/mature_tree.svg";
         return "Mature Tree";
     }
     if(stats.all>=500)
     {
         document.getElementById("games-to-next").textContent= "Forest Achieved!"
-        currentTree.src="https://imgproxy.attic.sh/insecure/f:webp/h:993/q:90/w:993/plain/https://attic.sh/qkqlry3bju95ui8tue1acaz07v6g";
+        currentTree.src="images/forest.webp";
         return "Forest";
     }
 
@@ -65,7 +65,6 @@ function updateProgressBar(stats)
 {
     document.getElementById("progress-bar").style.opacity = 1;
     let treeLevel = getTreeLevel(stats);
-    console.log(treeLevel);
     let list = [[0,20],[20,75],[75,200],[200,500]];
     let start = 0;
     let end = 0;
@@ -215,10 +214,8 @@ function openHomePage() {
 
 function updateBadges(stats,winRate)
 {
-    console.log("updating badges");
     if(stats.all >= 1)
     {
-        console.log(stats.all);
         let firstGameBadge = document.getElementById("first-game-badge");
         firstGameBadge.textContent = "☝️ First Game  ✔";
         firstGameBadge.style.color = "rgb(46, 125, 50)";
@@ -277,7 +274,6 @@ function updateBadges(stats,winRate)
     else
         
     {
-        console.log("started");
         let twoHundredGamesBadge = document.getElementById("two-hundred-games-badge");
         twoHundredGamesBadge.style.color = "rgb(227,38,38)";
         twoHundredGamesBadge.textContent = "🔒 200 Games";
