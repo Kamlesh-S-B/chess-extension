@@ -20,10 +20,10 @@ Transform your Lichess progress into a growing tree through achievements and per
 ## Screenshots
 
 ### Home Page
-![Home Page](project_screenshots/home.png)
+![Home Page](chess-extension/project_screenshots/home.png)
 
 ### Badges Page
-![Badges Page](project_screenshots/badges.png)
+![Badges Page](chess-extension/project_screenshots/badges.png)
 
 ---
 
