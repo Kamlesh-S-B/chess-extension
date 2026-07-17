@@ -18,8 +18,14 @@ function updateUI(stats, winrate)
         health = "Growing";
     }
 
-    document.getElementById("tree-level").textContent = `${treeLevel} | ${health} | WR: ${winrate}%`;
-    
+    if(Number.isNaN(winrate))
+    {
+        document.getElementById("tree-level").textContent = `${treeLevel} | ${health} | WR: N/A`;
+    }
+    else
+    {
+        document.getElementById("tree-level").textContent = `${treeLevel} | ${health} | WR: ${winrate}%`;
+    }
     updateProgressBar(stats);
     updateBadges(stats, winrate);
 }
@@ -327,6 +333,7 @@ function updateBadges(stats,winRate)
         forestBadge.classList.remove("pop-element");
     }
 }
+
 
 //event listeners
 

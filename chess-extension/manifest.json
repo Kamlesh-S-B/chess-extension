@@ -20,7 +20,9 @@
         }
     },
 
-    "permissions":["storage"]
+    "permissions":["storage"],
+
+    "description": "Track your Lichess progress through tree growth, achievements, and performance insights."
 
     
     
