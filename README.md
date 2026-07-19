@@ -29,12 +29,12 @@ Transform your Lichess progress into a growing tree through achievements and per
 
 ## Installation
 
-1. Download or clone this repository.
-2. Open Chrome.
-3. Go to chrome://extensions.
-4. Turn on Developer Mode.
+1. Download the latest release from the **Releases** section (named ChessGrowth)
+2. Extract the ZIP file.
+3. Open Chrome and go to chrome://extensions.
+4. Enable **Developer Mode**.
 5. Click **Load unpacked**.
-6. Select the project folder.
+6. Select the newly extracted folder.
 
 ---
 
